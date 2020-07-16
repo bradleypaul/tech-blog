@@ -10,13 +10,13 @@ const hbs = exphbs.create({})
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const sess = {
-    secret: 'alphaDog',
-    cookie: { maxAge: 600000 },
-    resave: false,
-    saveUninitialized: true,
-    store: new SequelizeStore({
-        db: sequelize
-    })
+  secret: 'alphaDog',
+  cookie: { maxAge: 600000 },
+  resave: false,
+  saveUninitialized: true,
+  store: new SequelizeStore({
+    db: sequelize
+  })
 };
 
 const app = express();
@@ -32,7 +32,7 @@ app.set('view engine', 'handlebars');
 app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {
-    app.listen(PORT, () => {
-        console.log('Now listening!');
-    });
+  app.listen(PORT, () => {
+    console.log('Now listening!');
+  });
 });
