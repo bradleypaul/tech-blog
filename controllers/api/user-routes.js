@@ -12,7 +12,6 @@ router.get('/', (req, res) => {
       console.log(err);
       res.status(500).json(err);
     });
-
 });
 
 router.get('/:id', (req, res) => {
@@ -137,6 +136,8 @@ router.post('/login', async (req, res) => {
 });
 
 router.post('/logout', (req, res) => {
+  console.log('hit')
+  console.log(req.session.loggedIn)
   if(req.session.loggedIn) {
     req.session.destroy(() => {
       res.status(204).end();
